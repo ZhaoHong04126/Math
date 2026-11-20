@@ -135,11 +135,14 @@
       });
     }
 
-    // 4. Homepage live formula search filter
+    // 4. Homepage live formula search & track filter
     var searchInput = document.getElementById('formula-search');
     var clearSearchBtn = document.getElementById('clear-search');
     var searchStatus = document.getElementById('search-status');
     var emptySearchState = document.getElementById('empty-search-state');
+    var trackButtons = Array.prototype.slice.call(
+      document.querySelectorAll('.track-filter-btn[data-track]')
+    );
 
     if (searchInput) {
       var formulaRows = Array.prototype.slice.call(
@@ -151,6 +154,30 @@
       var bookSections = Array.prototype.slice.call(
         document.querySelectorAll('.book-section')
       );
+      var trackDividers = Array.prototype.slice.call(
+        document.querySelectorAll('.track-divider[data-track]')
+      );
+      var jumpButtons = Array.prototype.slice.call(
+        document.querySelectorAll('.jump-btn[data-track]')
+      );
+      var activeTrack = 'all';
+
+      var syncTrackControls = function () {
+        trackButtons.forEach(function (btn) {
+          var isSelected = btn.getAttribute('data-track') === activeTrack;
+          btn.classList.toggle('is-active', isSelected);
+          btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+        });
+
+        jumpButtons.forEach(function (btn) {
+          var btnTrack = btn.getAttribute('data-track');
+          var visible =
+            activeTrack === 'all' ||
+            btnTrack === 'common' ||
+            btnTrack === activeTrack;
+          btn.classList.toggle('is-hidden', !visible);
+        });
+      };
 
       var filterFormulas = function () {
         var rawQuery = searchInput.value.trim();
@@ -162,10 +189,20 @@
         }
 
         formulaRows.forEach(function (row) {
+          var parentBook = row.closest('.book-section');
+          var bookTrack = parentBook
+            ? parentBook.getAttribute('data-track') || 'common'
+            : 'common';
+          var trackEligible =
+            activeTrack === 'all' ||
+            bookTrack === 'common' ||
+            bookTrack === activeTrack;
+
           var haystack = (
             row.getAttribute('data-search') || row.textContent || ''
           ).toLowerCase();
-          var matched = query === '' || haystack.indexOf(query) !== -1;
+          var matched =
+            trackEligible && (query === '' || haystack.indexOf(query) !== -1);
           row.classList.toggle('is-hidden', !matched);
           if (matched) {
             visibleCount += 1;
@@ -184,17 +221,51 @@
           book.classList.toggle('is-hidden', !hasVisibleGroup);
         });
 
+        trackDividers.forEach(function (divider) {
+          var divTrack = divider.getAttribute('data-track');
+          var hasVisibleBook =
+            document.querySelector(
+              '.book-section[data-track="' + divTrack + '"]:not(.is-hidden)'
+            ) !== null;
+          divider.classList.toggle('is-hidden', !hasVisibleBook);
+        });
+
         if (searchStatus) {
-          searchStatus.textContent =
-            query === ''
-              ? '共收錄 ' + formulaRows.length + ' 個核心公式（第 1 冊 1–24｜第 2 冊 25–61｜數A 第 3 冊 62–101｜數A 第 4 冊 102–136）'
-              : '找到 ' + visibleCount + ' 個符合「' + rawQuery + '」的公式';
+          if (query === '') {
+            if (activeTrack === 'a') {
+              searchStatus.textContent =
+                '目前顯示：自然組（共同 1–61 ＋ 數A A1–A75，共 ' +
+                visibleCount +
+                ' 個公式）';
+            } else if (activeTrack === 'b') {
+              searchStatus.textContent =
+                '目前顯示：社會組（共同 1–61 ＋ 數B B1–B45，共 ' +
+                visibleCount +
+                ' 個公式）';
+            } else {
+              searchStatus.textContent =
+                '共收錄 ' +
+                visibleCount +
+                ' 個核心公式（共同 1–61｜自然組 數A A1–A75｜社會組 數B B1–B45）';
+            }
+          } else {
+            searchStatus.textContent =
+              '找到 ' + visibleCount + ' 個符合「' + rawQuery + '」的公式';
+          }
         }
 
         if (emptySearchState) {
           emptySearchState.classList.toggle('is-hidden', visibleCount > 0);
         }
       };
+
+      trackButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activeTrack = btn.getAttribute('data-track') || 'all';
+          syncTrackControls();
+          filterFormulas();
+        });
+      });
 
       searchInput.addEventListener('input', filterFormulas);
 
@@ -206,6 +277,7 @@
         });
       }
 
+      syncTrackControls();
       filterFormulas();
     }
   });

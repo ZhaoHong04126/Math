@@ -34,42 +34,65 @@
         </span>
         <h1>高中數學核心公式總目錄</h1>
         <p class="home-subtitle">
-          完整收錄高一第 1–2 冊與高二數A第 3–4 冊核心公式、觀念重點、常見易錯點與精選範例，點擊下方任一公式即可快速跳轉至對應章節複習。
+          完整收錄高一共同必修（第 1–2 冊）、自然組 數A（第 3–4 冊）與社會組 數B（第 3–4 冊）核心公式、觀念重點、常見易錯點與精選範例，點擊下方任一公式即可快速跳轉至對應章節複習。
         </p>
 
         <div class="stat-chips">
           <span class="stat-chip">
             <i class="fa-solid fa-book-open"></i>
-            共 4 冊完整脈絡
+            共 6 冊（共同＋數A＋數B）
           </span>
           <span class="stat-chip stat-chip--blue">
             <i class="fa-solid fa-layer-group"></i>
-            14 個核心單元
+            21 個核心單元
           </span>
           <span class="stat-chip stat-chip--teal">
             <i class="fa-solid fa-square-root-variable"></i>
-            136 個必備公式（序號 1–136）
+            181 個必備公式（1–61｜A1–A75｜B1–B45）
           </span>
+        </div>
+
+        <div class="track-filter-bar" role="group" aria-label="篩選組別目錄">
+          <button type="button" class="track-filter-btn is-active" data-track="all" aria-pressed="true">
+            <i class="fa-solid fa-border-all"></i>
+            全部顯示
+          </button>
+          <button type="button" class="track-filter-btn" data-track="a" aria-pressed="false">
+            <i class="fa-solid fa-atom"></i>
+            自然組（數A）
+          </button>
+          <button type="button" class="track-filter-btn" data-track="b" aria-pressed="false">
+            <i class="fa-solid fa-landmark"></i>
+            社會組（數B）
+          </button>
         </div>
       </div>
 
       <div class="home-controls">
         <nav class="book-jump-nav" aria-label="快速切換冊別">
-          <a class="jump-btn jump-btn--b1" href="#book-1">
+          <a class="jump-btn jump-btn--b1" href="#book-1" data-track="common">
             <i class="fa-solid fa-leaf"></i>
-            高一第 1 冊（序號 1–24）
+            高一第 1 冊（1–24）
           </a>
-          <a class="jump-btn jump-btn--b2" href="#book-2">
+          <a class="jump-btn jump-btn--b2" href="#book-2" data-track="common">
             <i class="fa-solid fa-water"></i>
-            高一第 2 冊（序號 25–61）
+            高一第 2 冊（25–61）
           </a>
-          <a class="jump-btn jump-btn--b3" href="#book-3">
+          <a class="jump-btn jump-btn--b3" href="#book-3a" data-track="a">
             <i class="fa-solid fa-wave-square"></i>
-            數A 第 3 冊（序號 62–101）
+            數A 第 3 冊（A1–A40）
           </a>
-          <a class="jump-btn jump-btn--b4" href="#book-4">
+          <a class="jump-btn jump-btn--b4" href="#book-4a" data-track="a">
             <i class="fa-solid fa-cubes"></i>
-            數A 第 4 冊（序號 102–136）
+            數A 第 4 冊（A41–A75）
+          </a>
+          <a class="jump-btn jump-btn--b3b" href="#book-3b" data-track="b">
+            <i class="fa-solid fa-chart-line"></i>
+            數B 第 3 冊（B1–B26）
+          </a>
+          <a class="jump-btn jump-btn--b4b" href="#book-4b" data-track="b">
+            <i class="fa-solid fa-shapes"></i>
+            數B 第 4 冊（B27–B45）
           </a>
         </nav>
 
@@ -79,7 +102,7 @@
           <input
             type="search"
             id="formula-search"
-            placeholder="搜尋公式名稱、序號或單元（例：斜率、19、矩陣）"
+            placeholder="搜尋公式名稱、編號或單元（例：斜率、A25、B14、圓錐曲線）"
             autocomplete="off"
           >
           <button type="button" id="clear-search" class="is-hidden" aria-label="清除搜尋">
@@ -87,14 +110,22 @@
           </button>
         </div>
 
-        <p id="search-status">共收錄 136 個核心公式（第 1 冊 1–24｜第 2 冊 25–61｜數A 第 3 冊 62–101｜數A 第 4 冊 102–136）</p>
+        <p id="search-status">共收錄 181 個核心公式（共同 1–61｜自然組 數A A1–A75｜社會組 數B B1–B45）</p>
       </div>
     </header>
 
     <!-- Main 2-Column Book Grid -->
     <main class="books-grid">
+      <div class="track-divider track-divider--common" data-track="common">
+        <span class="track-divider-title">
+          <span class="track-pill">共同必修</span>
+          高一共同必修｜第 1–2 冊
+        </span>
+        <span class="track-divider-sub">序號 01–61（自然組與社會組共同核心）</span>
+      </div>
+
       <!-- ==================== 高一 第 1 冊 ==================== -->
-      <section id="book-1" class="book-section book-b1" aria-labelledby="book-1-title">
+      <section id="book-1" class="book-section book-b1" data-track="common" aria-labelledby="book-1-title">
         <div class="book-header">
           <div class="book-header-title">
             <h2 id="book-1-title">
@@ -284,7 +315,7 @@
       </section>
 
       <!-- ==================== 高一 第 2 冊 ==================== -->
-      <section id="book-2" class="book-section book-b2" aria-labelledby="book-2-title">
+      <section id="book-2" class="book-section book-b2" data-track="common" aria-labelledby="book-2-title">
         <div class="book-header">
           <div class="book-header-title">
             <h2 id="book-2-title">
@@ -552,17 +583,26 @@
         </div>
       </section>
 
+      <!-- ==================== 自然組（數A）分隔條 ==================== -->
+      <div class="track-divider track-divider--a" data-track="a">
+        <span class="track-divider-title">
+          <span class="track-pill">自然組｜數A</span>
+          數A 第 3–4 冊
+        </span>
+        <span class="track-divider-sub">序號 A1–A75（三角函數、指對數、向量、空間、矩陣、條件機率）</span>
+      </div>
+
       <!-- ==================== 數A 第 3 冊 ==================== -->
-      <section id="book-3" class="book-section book-b3" aria-labelledby="book-3-title">
+      <section id="book-3a" class="book-section book-b3" data-track="a" aria-labelledby="book-3a-title">
         <div class="book-header">
           <div class="book-header-title">
-            <h2 id="book-3-title">
+            <h2 id="book-3a-title">
               <i class="fa-solid fa-wave-square"></i>
-              數A 第 3 冊
+              自然組｜數A 第 3 冊
             </h2>
             <span class="book-header-meta">三角函數、指數與對數函數、平面向量</span>
           </div>
-          <span class="book-range-pill">序號 62–101</span>
+          <span class="book-range-pill">序號 A1–A40</span>
         </div>
 
         <div class="book-body">
@@ -574,74 +614,74 @@
                 單元 1｜三角函數
               </a>
               <div class="chapter-group-meta">
-                <span class="chapter-range-text">序號 62–74</span>
+                <span class="chapter-range-text">序號 A1–A13</span>
                 <span class="status-tag status-upcoming">建置中</span>
               </div>
             </div>
 
             <div class="formula-list">
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-62" data-search="62 弳 弧度 三角函數 數a 第3冊">
-                <span class="formula-num">62</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A1" data-search="a1 a01 弳 弧度 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A1</span>
                 <span class="formula-title">弳</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-63" data-search="63 扇形的弧長與面積公式 三角函數 數a 第3冊">
-                <span class="formula-num">63</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A2" data-search="a2 a02 扇形的弧長與面積公式 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A2</span>
                 <span class="formula-title">扇形的弧長與面積公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-64" data-search="64 正弦 餘弦的和角公式與差角公式 三角函數 數a 第3冊">
-                <span class="formula-num">64</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A3" data-search="a3 a03 正弦 餘弦的和角公式與差角公式 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A3</span>
                 <span class="formula-title">正弦、餘弦的和角公式與差角公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-65" data-search="65 正切的和角公式與差角公式 三角函數 數a 第3冊">
-                <span class="formula-num">65</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A4" data-search="a4 a04 正切的和角公式與差角公式 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A4</span>
                 <span class="formula-title">正切的和角公式與差角公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-66" data-search="66 直線的斜角 三角函數 數a 第3冊">
-                <span class="formula-num">66</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A5" data-search="a5 a05 直線的斜角 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A5</span>
                 <span class="formula-title">直線的斜角</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-67" data-search="67 兩直線的夾角 三角函數 數a 第3冊">
-                <span class="formula-num">67</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A6" data-search="a6 a06 兩直線的夾角 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A6</span>
                 <span class="formula-title">兩直線的夾角</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-68" data-search="68 二倍角公式 倍角公式 三角函數 數a 第3冊">
-                <span class="formula-num">68</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A7" data-search="a7 a07 二倍角公式 倍角公式 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A7</span>
                 <span class="formula-title">二倍角公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-69" data-search="69 半角公式 三角函數 數a 第3冊">
-                <span class="formula-num">69</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A8" data-search="a8 a08 半角公式 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A8</span>
                 <span class="formula-title">半角公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-70" data-search="70 正弦函數 sin 圖形 週期 三角函數 數a 第3冊">
-                <span class="formula-num">70</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A9" data-search="a9 a09 正弦函數 sin 圖形 週期 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A9</span>
                 <span class="formula-title">正弦函數</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-71" data-search="71 餘弦函數 cos 圖形 週期 三角函數 數a 第3冊">
-                <span class="formula-num">71</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A10" data-search="a10 餘弦函數 cos 圖形 週期 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A10</span>
                 <span class="formula-title">餘弦函數</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-72" data-search="72 正切函數 tan 圖形 週期 三角函數 數a 第3冊">
-                <span class="formula-num">72</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A11" data-search="a11 正切函數 tan 圖形 週期 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A11</span>
                 <span class="formula-title">正切函數</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-73" data-search="73 函數圖形的平移及伸縮 三角函數 數a 第3冊">
-                <span class="formula-num">73</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A12" data-search="a12 函數圖形的平移及伸縮 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A12</span>
                 <span class="formula-title">函數圖形的平移及伸縮</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-74" data-search="74 正 餘弦函數的疊合公式 疊合 三角函數 數a 第3冊">
-                <span class="formula-num">74</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch1.html#formula-A13" data-search="a13 正 餘弦函數的疊合公式 疊合 三角函數 自然組 數a 第3冊">
+                <span class="formula-num">A13</span>
                 <span class="formula-title">正、餘弦函數的疊合公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
@@ -656,64 +696,64 @@
                 單元 2｜指數與對數函數
               </a>
               <div class="chapter-group-meta">
-                <span class="chapter-range-text">序號 75–85</span>
+                <span class="chapter-range-text">序號 A14–A24</span>
                 <span class="status-tag status-upcoming">建置中</span>
               </div>
             </div>
 
             <div class="formula-list">
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-75" data-search="75 指數函數 指數與對數函數 數a 第3冊">
-                <span class="formula-num">75</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A14" data-search="a14 指數函數 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A14</span>
                 <span class="formula-title">指數函數</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-76" data-search="76 指數函數的定義域與值域 指數與對數函數 數a 第3冊">
-                <span class="formula-num">76</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A15" data-search="a15 指數函數的定義域與值域 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A15</span>
                 <span class="formula-title">指數函數的定義域與值域</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-77" data-search="77 指數函數圖形 指數與對數函數 數a 第3冊">
-                <span class="formula-num">77</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A16" data-search="a16 指數函數圖形 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A16</span>
                 <span class="formula-title">指數函數圖形</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-78" data-search="78 常用對數的基本性質 指數與對數函數 數a 第3冊">
-                <span class="formula-num">78</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A17" data-search="a17 常用對數的基本性質 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A17</span>
                 <span class="formula-title">常用對數的基本性質</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-79" data-search="79 以 a 為底數的對數定義 指數與對數函數 數a 第3冊">
-                <span class="formula-num">79</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A18" data-search="a18 以 a 為底數的對數定義 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A18</span>
                 <span class="formula-title">以 $a$ 為底數的對數定義</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-80" data-search="80 換底公式 對數 指數與對數函數 數a 第3冊">
-                <span class="formula-num">80</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A19" data-search="a19 換底公式 對數 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A19</span>
                 <span class="formula-title">換底公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-81" data-search="81 對數函數 指數與對數函數 數a 第3冊">
-                <span class="formula-num">81</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A20" data-search="a20 對數函數 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A20</span>
                 <span class="formula-title">對數函數</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-82" data-search="82 比較 y=log_a x 與 y=a^x 的圖形 指數與對數函數 數a 第3冊">
-                <span class="formula-num">82</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A21" data-search="a21 比較 y=log_a x 與 y=a^x 的圖形 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A21</span>
                 <span class="formula-title">比較 $y = \log_a x$ 與 $y = a^x$ 的圖形</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-83" data-search="83 對數函數 log_a x a>1 圖形的凹向性 指數與對數函數 數a 第3冊">
-                <span class="formula-num">83</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A22" data-search="a22 對數函數 log_a x a>1 大於 圖形的凹向性 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A22</span>
                 <span class="formula-title">對數函數 $\log_a x$，$a \gt 1$ 圖形的凹向性</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-84" data-search="84 單利與複利 指數與對數函數 數a 第3冊">
-                <span class="formula-num">84</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A23" data-search="a23 單利與複利 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A23</span>
                 <span class="formula-title">單利與複利</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-85" data-search="85 常數 e 自然底數 指數與對數函數 數a 第3冊">
-                <span class="formula-num">85</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch2.html#formula-A24" data-search="a24 常數 e 自然底數 指數與對數函數 自然組 數a 第3冊">
+                <span class="formula-num">A24</span>
                 <span class="formula-title">常數 $e$</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
@@ -728,89 +768,89 @@
                 單元 3｜平面向量
               </a>
               <div class="chapter-group-meta">
-                <span class="chapter-range-text">序號 86–101</span>
+                <span class="chapter-range-text">序號 A25–A40</span>
                 <span class="status-tag status-upcoming">建置中</span>
               </div>
             </div>
 
             <div class="formula-list">
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-86" data-search="86 向量的坐標表示法與長度 平面向量 數a 第3冊">
-                <span class="formula-num">86</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A25" data-search="a25 向量的坐標表示法與長度 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A25</span>
                 <span class="formula-title">向量的坐標表示法與長度</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-87" data-search="87 三角不等式 平面向量 數a 第3冊">
-                <span class="formula-num">87</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A26" data-search="a26 三角不等式 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A26</span>
                 <span class="formula-title">三角不等式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-88" data-search="88 向量的線性組合 平面向量 數a 第3冊">
-                <span class="formula-num">88</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A27" data-search="a27 向量的線性組合 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A27</span>
                 <span class="formula-title">向量的線性組合</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-89" data-search="89 分點公式 平面向量 數a 第3冊">
-                <span class="formula-num">89</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A28" data-search="a28 分點公式 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A28</span>
                 <span class="formula-title">分點公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-90" data-search="90 三點共線 平面向量 數a 第3冊">
-                <span class="formula-num">90</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A29" data-search="a29 三點共線 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A29</span>
                 <span class="formula-title">三點共線</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-91" data-search="91 平面向量的內積 平面向量 數a 第3冊">
-                <span class="formula-num">91</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A30" data-search="a30 平面向量的內積 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A30</span>
                 <span class="formula-title">平面向量的內積</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-92" data-search="92 兩向量垂直的判定法則 平面向量 數a 第3冊">
-                <span class="formula-num">92</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A31" data-search="a31 兩向量垂直的判定法則 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A31</span>
                 <span class="formula-title">兩向量垂直的判定法則</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-93" data-search="93 內積的基本性質 平面向量 數a 第3冊">
-                <span class="formula-num">93</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A32" data-search="a32 內積的基本性質 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A32</span>
                 <span class="formula-title">內積的基本性質</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-94" data-search="94 柯西不等式 平面向量 數a 第3冊">
-                <span class="formula-num">94</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A33" data-search="a33 柯西不等式 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A33</span>
                 <span class="formula-title">柯西不等式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-95" data-search="95 向量的正射影 平面向量 數a 第3冊">
-                <span class="formula-num">95</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A34" data-search="a34 向量的正射影 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A34</span>
                 <span class="formula-title">向量的正射影</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-96" data-search="96 直線的法向量 平面向量 數a 第3冊">
-                <span class="formula-num">96</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A35" data-search="a35 直線的法向量 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A35</span>
                 <span class="formula-title">直線的法向量</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-97" data-search="97 二階行列式 平面向量 數a 第3冊">
-                <span class="formula-num">97</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A36" data-search="a36 二階行列式 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A36</span>
                 <span class="formula-title">二階行列式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-98" data-search="98 三角形與平行四邊形的面積公式 平面向量 數a 第3冊">
-                <span class="formula-num">98</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A37" data-search="a37 三角形與平行四邊形的面積公式 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A37</span>
                 <span class="formula-title">三角形與平行四邊形的面積公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-99" data-search="99 線性組合與二元一次方程組 平面向量 數a 第3冊">
-                <span class="formula-num">99</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A38" data-search="a38 線性組合與二元一次方程組 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A38</span>
                 <span class="formula-title">線性組合與二元一次方程組</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-100" data-search="100 克拉瑪公式 平面向量 數a 第3冊">
-                <span class="formula-num">100</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A39" data-search="a39 克拉瑪公式 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A39</span>
                 <span class="formula-title">克拉瑪公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-101" data-search="101 克拉瑪公式的幾何意義 平面向量 數a 第3冊">
-                <span class="formula-num">101</span>
+              <a class="formula-row" href="chapters/Volume3a/Ch3.html#formula-A40" data-search="a40 克拉瑪公式的幾何意義 平面向量 自然組 數a 第3冊">
+                <span class="formula-num">A40</span>
                 <span class="formula-title">克拉瑪公式的幾何意義</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
@@ -820,16 +860,16 @@
       </section>
 
       <!-- ==================== 數A 第 4 冊 ==================== -->
-      <section id="book-4" class="book-section book-b4" aria-labelledby="book-4-title">
+      <section id="book-4a" class="book-section book-b4" data-track="a" aria-labelledby="book-4a-title">
         <div class="book-header">
           <div class="book-header-title">
-            <h2 id="book-4-title">
+            <h2 id="book-4a-title">
               <i class="fa-solid fa-cubes"></i>
-              數A 第 4 冊
+              自然組｜數A 第 4 冊
             </h2>
             <span class="book-header-meta">空間向量、空間中的平面與直線、矩陣、條件機率與獨立事件</span>
           </div>
-          <span class="book-range-pill">序號 102–136</span>
+          <span class="book-range-pill">序號 A41–A75</span>
         </div>
 
         <div class="book-body">
@@ -841,59 +881,59 @@
                 單元 1｜空間向量
               </a>
               <div class="chapter-group-meta">
-                <span class="chapter-range-text">序號 102–111</span>
+                <span class="chapter-range-text">序號 A41–A50</span>
                 <span class="status-tag status-upcoming">建置中</span>
               </div>
             </div>
 
             <div class="formula-list">
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-102" data-search="102 直線與直線的關係 空間向量 數a 第4冊">
-                <span class="formula-num">102</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A41" data-search="a41 直線與直線的關係 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A41</span>
                 <span class="formula-title">直線與直線的關係</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-103" data-search="103 直線與平面垂直的定義 空間向量 數a 第4冊">
-                <span class="formula-num">103</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A42" data-search="a42 直線與平面垂直的定義 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A42</span>
                 <span class="formula-title">直線與平面垂直的定義</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-104" data-search="104 三垂線定理 空間向量 數a 第4冊">
-                <span class="formula-num">104</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A43" data-search="a43 三垂線定理 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A43</span>
                 <span class="formula-title">三垂線定理</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-105" data-search="105 距離公式 空間兩點距離 空間向量 數a 第4冊">
-                <span class="formula-num">105</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A44" data-search="a44 距離公式 空間兩點距離 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A44</span>
                 <span class="formula-title">距離公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-106" data-search="106 空間向量的內積 空間向量 數a 第4冊">
-                <span class="formula-num">106</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A45" data-search="a45 空間向量的內積 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A45</span>
                 <span class="formula-title">空間向量的內積</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-107" data-search="107 柯西不等式 空間向量 數a 第4冊">
-                <span class="formula-num">107</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A46" data-search="a46 柯西不等式 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A46</span>
                 <span class="formula-title">柯西不等式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-108" data-search="108 空間向量的外積 空間向量 數a 第4冊">
-                <span class="formula-num">108</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A47" data-search="a47 空間向量的外積 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A47</span>
                 <span class="formula-title">空間向量的外積</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-109" data-search="109 空間向量外積的基本性質 空間向量 數a 第4冊">
-                <span class="formula-num">109</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A48" data-search="a48 空間向量外積的基本性質 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A48</span>
                 <span class="formula-title">空間向量外積的基本性質</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-110" data-search="110 三階行列式 空間向量 數a 第4冊">
-                <span class="formula-num">110</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A49" data-search="a49 三階行列式 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A49</span>
                 <span class="formula-title">三階行列式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-111" data-search="111 平行六面體體積 空間向量 數a 第4冊">
-                <span class="formula-num">111</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch1.html#formula-A50" data-search="a50 平行六面體體積 空間向量 自然組 數a 第4冊">
+                <span class="formula-num">A50</span>
                 <span class="formula-title">平行六面體體積</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
@@ -908,49 +948,49 @@
                 單元 2｜空間中的平面與直線
               </a>
               <div class="chapter-group-meta">
-                <span class="chapter-range-text">序號 112–119</span>
+                <span class="chapter-range-text">序號 A51–A58</span>
                 <span class="status-tag status-upcoming">建置中</span>
               </div>
             </div>
 
             <div class="formula-list">
-              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-112" data-search="112 平面方程式 空間中的平面與直線 數a 第4冊">
-                <span class="formula-num">112</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-A51" data-search="a51 平面方程式 空間中的平面與直線 自然組 數a 第4冊">
+                <span class="formula-num">A51</span>
                 <span class="formula-title">平面方程式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-113" data-search="113 兩平面的夾角 空間中的平面與直線 數a 第4冊">
-                <span class="formula-num">113</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-A52" data-search="a52 兩平面的夾角 空間中的平面與直線 自然組 數a 第4冊">
+                <span class="formula-num">A52</span>
                 <span class="formula-title">兩平面的夾角</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-114" data-search="114 點到平面的距離公式 空間中的平面與直線 數a 第4冊">
-                <span class="formula-num">114</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-A53" data-search="a53 點到平面的距離公式 空間中的平面與直線 自然組 數a 第4冊">
+                <span class="formula-num">A53</span>
                 <span class="formula-title">點到平面的距離公式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-115" data-search="115 兩平行平面的距離 空間中的平面與直線 數a 第4冊">
-                <span class="formula-num">115</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-A54" data-search="a54 兩平行平面的距離 空間中的平面與直線 自然組 數a 第4冊">
+                <span class="formula-num">A54</span>
                 <span class="formula-title">兩平行平面的距離</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-116" data-search="116 直線的參數式 空間中的平面與直線 數a 第4冊">
-                <span class="formula-num">116</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-A55" data-search="a55 直線的參數式 空間中的平面與直線 自然組 數a 第4冊">
+                <span class="formula-num">A55</span>
                 <span class="formula-title">直線的參數式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-117" data-search="117 直線的比例式 空間中的平面與直線 數a 第4冊">
-                <span class="formula-num">117</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-A56" data-search="a56 直線的比例式 空間中的平面與直線 自然組 數a 第4冊">
+                <span class="formula-num">A56</span>
                 <span class="formula-title">直線的比例式</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-118" data-search="118 直線與平面的關係 空間中的平面與直線 數a 第4冊">
-                <span class="formula-num">118</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-A57" data-search="a57 直線與平面的關係 空間中的平面與直線 自然組 數a 第4冊">
+                <span class="formula-num">A57</span>
                 <span class="formula-title">直線與平面的關係</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-119" data-search="119 二直線關係的判斷 空間中的平面與直線 數a 第4冊">
-                <span class="formula-num">119</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch2.html#formula-A58" data-search="a58 二直線關係的判斷 空間中的平面與直線 自然組 數a 第4冊">
+                <span class="formula-num">A58</span>
                 <span class="formula-title">二直線關係的判斷</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
@@ -965,79 +1005,79 @@
                 單元 3｜矩陣
               </a>
               <div class="chapter-group-meta">
-                <span class="chapter-range-text">序號 120–133</span>
+                <span class="chapter-range-text">序號 A59–A72</span>
                 <span class="status-tag status-upcoming">建置中</span>
               </div>
             </div>
 
             <div class="formula-list">
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-120" data-search="120 高斯消去法與矩陣的列運算 矩陣 數a 第4冊">
-                <span class="formula-num">120</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A59" data-search="a59 高斯消去法與矩陣的列運算 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A59</span>
                 <span class="formula-title">高斯消去法與矩陣的列運算</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-121" data-search="121 線性組合的幾何意義 矩陣 數a 第4冊">
-                <span class="formula-num">121</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A60" data-search="a60 線性組合的幾何意義 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A60</span>
                 <span class="formula-title">線性組合的幾何意義</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-122" data-search="122 矩陣的定義 矩陣 數a 第4冊">
-                <span class="formula-num">122</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A61" data-search="a61 矩陣的定義 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A61</span>
                 <span class="formula-title">矩陣的定義</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-123" data-search="123 矩陣加法 減法與係數積的定義 矩陣 數a 第4冊">
-                <span class="formula-num">123</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A62" data-search="a62 矩陣加法 減法與係數積的定義 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A62</span>
                 <span class="formula-title">矩陣加法、減法與係數積的定義</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-124" data-search="124 矩陣的係數積具有以下的性質 矩陣 數a 第4冊">
-                <span class="formula-num">124</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A63" data-search="a63 矩陣的係數積具有以下的性質 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A63</span>
                 <span class="formula-title">矩陣的係數積具有以下的性質</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-125" data-search="125 矩陣乘法的定義 矩陣 數a 第4冊">
-                <span class="formula-num">125</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A64" data-search="a64 矩陣乘法的定義 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A64</span>
                 <span class="formula-title">矩陣乘法的定義</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-126" data-search="126 乘法反方陣 逆矩陣 矩陣 數a 第4冊">
-                <span class="formula-num">126</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A65" data-search="a65 乘法反方陣 逆矩陣 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A65</span>
                 <span class="formula-title">乘法反方陣</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-127" data-search="127 2 階轉移矩陣 轉移矩陣 馬可夫 矩陣 數a 第4冊">
-                <span class="formula-num">127</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A66" data-search="a66 2 階轉移矩陣 轉移矩陣 馬可夫 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A66</span>
                 <span class="formula-title">2 階轉移矩陣</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-128" data-search="128 平面上的線性變換 矩陣 數a 第4冊">
-                <span class="formula-num">128</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A67" data-search="a67 平面上的線性變換 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A67</span>
                 <span class="formula-title">平面上的線性變換</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-129" data-search="129 線性變換的面積比 矩陣 數a 第4冊">
-                <span class="formula-num">129</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A68" data-search="a68 線性變換的面積比 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A68</span>
                 <span class="formula-title">線性變換的面積比</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-130" data-search="130 伸縮矩陣 伸縮變換 矩陣 數a 第4冊">
-                <span class="formula-num">130</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A69" data-search="a69 伸縮矩陣 伸縮變換 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A69</span>
                 <span class="formula-title">伸縮矩陣、伸縮變換</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-131" data-search="131 鏡射矩陣 鏡射變換 矩陣 數a 第4冊">
-                <span class="formula-num">131</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A70" data-search="a70 鏡射矩陣 鏡射變換 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A70</span>
                 <span class="formula-title">鏡射矩陣、鏡射變換</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-132" data-search="132 旋轉矩陣 旋轉變換 矩陣 數a 第4冊">
-                <span class="formula-num">132</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A71" data-search="a71 旋轉矩陣 旋轉變換 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A71</span>
                 <span class="formula-title">旋轉矩陣、旋轉變換</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-133" data-search="133 推移矩陣 推移變換 矩陣 數a 第4冊">
-                <span class="formula-num">133</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch3.html#formula-A72" data-search="a72 推移矩陣 推移變換 矩陣 自然組 數a 第4冊">
+                <span class="formula-num">A72</span>
                 <span class="formula-title">推移矩陣、推移變換</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
@@ -1052,25 +1092,410 @@
                 單元 4｜條件機率與獨立事件
               </a>
               <div class="chapter-group-meta">
-                <span class="chapter-range-text">序號 134–136</span>
+                <span class="chapter-range-text">序號 A73–A75</span>
                 <span class="status-tag status-upcoming">建置中</span>
               </div>
             </div>
 
             <div class="formula-list">
-              <a class="formula-row" href="chapters/Volume4a/Ch4.html#formula-134" data-search="134 條件機率 條件機率與獨立事件 數a 第4冊">
-                <span class="formula-num">134</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch4.html#formula-A73" data-search="a73 條件機率 條件機率與獨立事件 自然組 數a 第4冊">
+                <span class="formula-num">A73</span>
                 <span class="formula-title">條件機率</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch4.html#formula-135" data-search="135 獨立事件 條件機率與獨立事件 數a 第4冊">
-                <span class="formula-num">135</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch4.html#formula-A74" data-search="a74 獨立事件 條件機率與獨立事件 自然組 數a 第4冊">
+                <span class="formula-num">A74</span>
                 <span class="formula-title">獨立事件</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
-              <a class="formula-row" href="chapters/Volume4a/Ch4.html#formula-136" data-search="136 三事件為獨立事件 條件機率與獨立事件 數a 第4冊">
-                <span class="formula-num">136</span>
+              <a class="formula-row" href="chapters/Volume4a/Ch4.html#formula-A75" data-search="a75 三事件為獨立事件 條件機率與獨立事件 自然組 數a 第4冊">
+                <span class="formula-num">A75</span>
                 <span class="formula-title">三事件為獨立事件</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 社會組（數B）分隔條 ==================== -->
+      <div class="track-divider track-divider--b" data-track="b">
+        <span class="track-divider-title">
+          <span class="track-pill">社會組｜數B</span>
+          數B 第 3–4 冊
+        </span>
+        <span class="track-divider-sub">序號 B1–B45（三角、指對數與七二法則、單點透視法、圓錐曲線、機率與矩陣）</span>
+      </div>
+
+      <!-- ==================== 數B 第 3 冊 ==================== -->
+      <section id="book-3b" class="book-section book-b3b" data-track="b" aria-labelledby="book-3b-title">
+        <div class="book-header">
+          <div class="book-header-title">
+            <h2 id="book-3b-title">
+              <i class="fa-solid fa-chart-line"></i>
+              社會組｜數B 第 3 冊
+            </h2>
+            <span class="book-header-meta">三角函數、指數與對數函數、平面向量</span>
+          </div>
+          <span class="book-range-pill">序號 B1–B26</span>
+        </div>
+
+        <div class="book-body">
+          <!-- 數B 第 3 冊 單元 1 -->
+          <div class="chapter-group">
+            <div class="chapter-group-header">
+              <a class="chapter-group-title-link" href="chapters/Volume3b/Ch1.html">
+                <i class="fa-solid fa-bookmark"></i>
+                單元 1｜三角函數
+              </a>
+              <div class="chapter-group-meta">
+                <span class="chapter-range-text">序號 B1–B5</span>
+                <span class="status-tag status-upcoming">建置中</span>
+              </div>
+            </div>
+
+            <div class="formula-list">
+              <a class="formula-row" href="chapters/Volume3b/Ch1.html#formula-B1" data-search="b1 b01 弳 弧度 三角函數 社會組 數b 第3冊">
+                <span class="formula-num">B1</span>
+                <span class="formula-title">弳</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch1.html#formula-B2" data-search="b2 b02 扇形的弧長與面積公式 三角函數 社會組 數b 第3冊">
+                <span class="formula-num">B2</span>
+                <span class="formula-title">扇形的弧長與面積公式</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch1.html#formula-B3" data-search="b3 b03 正弦函數 sin 三角函數 社會組 數b 第3冊">
+                <span class="formula-num">B3</span>
+                <span class="formula-title">正弦函數</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch1.html#formula-B4" data-search="b4 b04 正弦函數 y=sin x 圖形的平移 三角函數 社會組 數b 第3冊">
+                <span class="formula-num">B4</span>
+                <span class="formula-title">正弦函數 $y = \sin x$ 圖形的平移</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch1.html#formula-B5" data-search="b5 b05 正弦函數 y=sin x 圖形的伸縮 三角函數 社會組 數b 第3冊">
+                <span class="formula-num">B5</span>
+                <span class="formula-title">正弦函數 $y = \sin x$ 圖形的伸縮</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 數B 第 3 冊 單元 2 -->
+          <div class="chapter-group">
+            <div class="chapter-group-header">
+              <a class="chapter-group-title-link" href="chapters/Volume3b/Ch2.html">
+                <i class="fa-solid fa-bookmark"></i>
+                單元 2｜指數與對數函數
+              </a>
+              <div class="chapter-group-meta">
+                <span class="chapter-range-text">序號 B6–B14</span>
+                <span class="status-tag status-upcoming">建置中</span>
+              </div>
+            </div>
+
+            <div class="formula-list">
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B6" data-search="b6 b06 指數函數 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B6</span>
+                <span class="formula-title">指數函數</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B7" data-search="b7 b07 指數函數的定義域與值域 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B7</span>
+                <span class="formula-title">指數函數的定義域與值域</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B8" data-search="b8 b08 指數函數圖形 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B8</span>
+                <span class="formula-title">指數函數圖形</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B9" data-search="b9 b09 常用對數的性質 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B9</span>
+                <span class="formula-title">常用對數的性質</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B10" data-search="b10 一般對數 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B10</span>
+                <span class="formula-title">一般對數</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B11" data-search="b11 換底公式 對數 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B11</span>
+                <span class="formula-title">換底公式</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B12" data-search="b12 對數函數 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B12</span>
+                <span class="formula-title">對數函數</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B13" data-search="b13 單利與複利 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B13</span>
+                <span class="formula-title">單利與複利</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch2.html#formula-B14" data-search="b14 七二法則 72法則 複利 指數與對數函數 社會組 數b 第3冊">
+                <span class="formula-num">B14</span>
+                <span class="formula-title">七二法則</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 數B 第 3 冊 單元 3 -->
+          <div class="chapter-group">
+            <div class="chapter-group-header">
+              <a class="chapter-group-title-link" href="chapters/Volume3b/Ch3.html">
+                <i class="fa-solid fa-bookmark"></i>
+                單元 3｜平面向量
+              </a>
+              <div class="chapter-group-meta">
+                <span class="chapter-range-text">序號 B15–B26</span>
+                <span class="status-tag status-upcoming">建置中</span>
+              </div>
+            </div>
+
+            <div class="formula-list">
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B15" data-search="b15 向量的長度 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B15</span>
+                <span class="formula-title">向量的長度</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B16" data-search="b16 兩點決定一個向量的坐標表示法 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B16</span>
+                <span class="formula-title">兩點決定一個向量的坐標表示法</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B17" data-search="b17 向量加法的坐標表示法 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B17</span>
+                <span class="formula-title">向量加法的坐標表示法</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B18" data-search="b18 向量減法的坐標表示法 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B18</span>
+                <span class="formula-title">向量減法的坐標表示法</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B19" data-search="b19 向量的線性組合 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B19</span>
+                <span class="formula-title">向量的線性組合</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B20" data-search="b20 分點公式 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B20</span>
+                <span class="formula-title">分點公式</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B21" data-search="b21 平面向量的內積 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B21</span>
+                <span class="formula-title">平面向量的內積</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B22" data-search="b22 兩向量垂直的判定法則 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B22</span>
+                <span class="formula-title">兩向量垂直的判定法則</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B23" data-search="b23 內積的基本性質 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B23</span>
+                <span class="formula-title">內積的基本性質</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B24" data-search="b24 向量的正射影 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B24</span>
+                <span class="formula-title">向量的正射影</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B25" data-search="b25 直線的法向量 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B25</span>
+                <span class="formula-title">直線的法向量</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume3b/Ch3.html#formula-B26" data-search="b26 單點透視法 透視 消失點 平面向量 社會組 數b 第3冊">
+                <span class="formula-num">B26</span>
+                <span class="formula-title">單點透視法</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 數B 第 4 冊 ==================== -->
+      <section id="book-4b" class="book-section book-b4b" data-track="b" aria-labelledby="book-4b-title">
+        <div class="book-header">
+          <div class="book-header-title">
+            <h2 id="book-4b-title">
+              <i class="fa-solid fa-shapes"></i>
+              社會組｜數B 第 4 冊
+            </h2>
+            <span class="book-header-meta">空間概念、圓錐曲線、條件機率與獨立事件、矩陣</span>
+          </div>
+          <span class="book-range-pill">序號 B27–B45</span>
+        </div>
+
+        <div class="book-body">
+          <!-- 數B 第 4 冊 單元 1 -->
+          <div class="chapter-group">
+            <div class="chapter-group-header">
+              <a class="chapter-group-title-link" href="chapters/Volume4b/Ch1.html">
+                <i class="fa-solid fa-bookmark"></i>
+                單元 1｜空間概念
+              </a>
+              <div class="chapter-group-meta">
+                <span class="chapter-range-text">序號 B27–B33</span>
+                <span class="status-tag status-upcoming">建置中</span>
+              </div>
+            </div>
+
+            <div class="formula-list">
+              <a class="formula-row" href="chapters/Volume4b/Ch1.html#formula-B27" data-search="b27 直線與直線的關係 空間概念 社會組 數b 第4冊">
+                <span class="formula-num">B27</span>
+                <span class="formula-title">直線與直線的關係</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch1.html#formula-B28" data-search="b28 直線與平面垂直的定義 空間概念 社會組 數b 第4冊">
+                <span class="formula-num">B28</span>
+                <span class="formula-title">直線與平面垂直的定義</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch1.html#formula-B29" data-search="b29 三垂線定理 空間概念 社會組 數b 第4冊">
+                <span class="formula-num">B29</span>
+                <span class="formula-title">三垂線定理</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch1.html#formula-B30" data-search="b30 三視圖 空間概念 社會組 數b 第4冊">
+                <span class="formula-num">B30</span>
+                <span class="formula-title">三視圖</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch1.html#formula-B31" data-search="b31 空間圖形的截痕 空間概念 社會組 數b 第4冊">
+                <span class="formula-num">B31</span>
+                <span class="formula-title">空間圖形的截痕</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch1.html#formula-B32" data-search="b32 距離公式 空間兩點距離 空間概念 社會組 數b 第4冊">
+                <span class="formula-num">B32</span>
+                <span class="formula-title">距離公式</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch1.html#formula-B33" data-search="b33 球面與平面的截痕及經緯線 經線 緯線 空間概念 社會組 數b 第4冊">
+                <span class="formula-num">B33</span>
+                <span class="formula-title">球面與平面的截痕及經緯線</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 數B 第 4 冊 單元 2 -->
+          <div class="chapter-group">
+            <div class="chapter-group-header">
+              <a class="chapter-group-title-link" href="chapters/Volume4b/Ch2.html">
+                <i class="fa-solid fa-bookmark"></i>
+                單元 2｜圓錐曲線
+              </a>
+              <div class="chapter-group-meta">
+                <span class="chapter-range-text">序號 B34–B37</span>
+                <span class="status-tag status-upcoming">建置中</span>
+              </div>
+            </div>
+
+            <div class="formula-list">
+              <a class="formula-row" href="chapters/Volume4b/Ch2.html#formula-B34" data-search="b34 圓錐曲線 圓錐截痕 社會組 數b 第4冊">
+                <span class="formula-num">B34</span>
+                <span class="formula-title">圓錐曲線</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch2.html#formula-B35" data-search="b35 拋物線的標準式 圓錐曲線 社會組 數b 第4冊">
+                <span class="formula-num">B35</span>
+                <span class="formula-title">拋物線的標準式</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch2.html#formula-B36" data-search="b36 橢圓的標準式 圓錐曲線 社會組 數b 第4冊">
+                <span class="formula-num">B36</span>
+                <span class="formula-title">橢圓的標準式</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch2.html#formula-B37" data-search="b37 雙曲線的標準式 圓錐曲線 社會組 數b 第4冊">
+                <span class="formula-num">B37</span>
+                <span class="formula-title">雙曲線的標準式</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 數B 第 4 冊 單元 3 -->
+          <div class="chapter-group">
+            <div class="chapter-group-header">
+              <a class="chapter-group-title-link" href="chapters/Volume4b/Ch3.html">
+                <i class="fa-solid fa-bookmark"></i>
+                單元 3｜條件機率與獨立事件
+              </a>
+              <div class="chapter-group-meta">
+                <span class="chapter-range-text">序號 B38–B40</span>
+                <span class="status-tag status-upcoming">建置中</span>
+              </div>
+            </div>
+
+            <div class="formula-list">
+              <a class="formula-row" href="chapters/Volume4b/Ch3.html#formula-B38" data-search="b38 條件機率 條件機率與獨立事件 社會組 數b 第4冊">
+                <span class="formula-num">B38</span>
+                <span class="formula-title">條件機率</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch3.html#formula-B39" data-search="b39 獨立事件 條件機率與獨立事件 社會組 數b 第4冊">
+                <span class="formula-num">B39</span>
+                <span class="formula-title">獨立事件</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch3.html#formula-B40" data-search="b40 三事件為獨立事件 條件機率與獨立事件 社會組 數b 第4冊">
+                <span class="formula-num">B40</span>
+                <span class="formula-title">三事件為獨立事件</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 數B 第 4 冊 單元 4 -->
+          <div class="chapter-group">
+            <div class="chapter-group-header">
+              <a class="chapter-group-title-link" href="chapters/Volume4b/Ch4.html">
+                <i class="fa-solid fa-bookmark"></i>
+                單元 4｜矩陣
+              </a>
+              <div class="chapter-group-meta">
+                <span class="chapter-range-text">序號 B41–B45</span>
+                <span class="status-tag status-upcoming">建置中</span>
+              </div>
+            </div>
+
+            <div class="formula-list">
+              <a class="formula-row" href="chapters/Volume4b/Ch4.html#formula-B41" data-search="b41 矩陣的定義 矩陣 社會組 數b 第4冊">
+                <span class="formula-num">B41</span>
+                <span class="formula-title">矩陣的定義</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch4.html#formula-B42" data-search="b42 矩陣加法 減法與係數積的定義 矩陣 社會組 數b 第4冊">
+                <span class="formula-num">B42</span>
+                <span class="formula-title">矩陣加法、減法與係數積的定義</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch4.html#formula-B43" data-search="b43 矩陣的係數積具有以下的性質 矩陣 社會組 數b 第4冊">
+                <span class="formula-num">B43</span>
+                <span class="formula-title">矩陣的係數積具有以下的性質</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch4.html#formula-B44" data-search="b44 矩陣乘法的定義 矩陣 社會組 數b 第4冊">
+                <span class="formula-num">B44</span>
+                <span class="formula-title">矩陣乘法的定義</span>
+                <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
+              </a>
+              <a class="formula-row" href="chapters/Volume4b/Ch4.html#formula-B45" data-search="b45 乘法反方陣 逆矩陣 矩陣 社會組 數b 第4冊">
+                <span class="formula-num">B45</span>
+                <span class="formula-title">乘法反方陣</span>
                 <i class="fa-solid fa-chevron-right formula-chevron" aria-hidden="true"></i>
               </a>
             </div>
