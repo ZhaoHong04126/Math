@@ -562,6 +562,8 @@ svg {
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .track-divider--common .track-pill {
@@ -586,6 +588,7 @@ svg {
   font-size: 0.85rem;
   color: var(--text-muted);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .book-section {
@@ -622,12 +625,15 @@ svg {
 }
 
 .book-header {
-  padding: 20px 24px;
+  padding: 18px 22px;
   color: #ffffff;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title right"
+    "meta  right";
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 4px 12px;
   cursor: pointer;
   user-select: none;
   transition: filter 0.15s ease;
@@ -667,26 +673,28 @@ svg {
 }
 
 .book-header-title {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: contents;
 }
 
 .book-header-title h2 {
+  grid-area: title;
   margin: 0;
   font-size: 1.3rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 10px;
+  white-space: nowrap;
 }
 
 .book-header-meta {
+  grid-area: meta;
   font-size: 0.86rem;
   opacity: 0.93;
 }
 
 .book-header-right {
+  grid-area: right;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -1743,15 +1751,17 @@ details.solution-details[open] .solution-toggle-icon {
   .home-layout,
   .chapter-layout {
     grid-template-columns: 1fr;
-    gap: 18px;
-    padding-top: 16px;
+    gap: 14px;
+    padding-top: 14px;
   }
 
   .home-sidebar,
   .chapter-sidebar {
     position: static;
     max-height: none;
-    padding: 12px;
+    padding: 10px 14px;
+    border-top-width: 3px;
+    border-radius: var(--radius-md);
   }
 
   .sidebar-header {
@@ -1760,11 +1770,17 @@ details.solution-details[open] .solution-toggle-icon {
 
   .mobile-toc-toggle {
     display: flex;
+    padding: 4px 2px;
+    border: none;
+    background: transparent;
+    font-size: 0.92rem;
   }
 
   .toc-nav {
     display: none;
-    margin-top: 12px;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-subtle);
   }
 
   .home-sidebar.is-open .toc-nav,
@@ -1775,19 +1791,146 @@ details.solution-details[open] .solution-toggle-icon {
   .home-sidebar.is-open .mobile-toc-toggle i.toggle-caret {
     transform: rotate(180deg);
   }
+
+  .home-sidebar .track-filter-bar {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .home-sidebar .track-filter-btn {
+    justify-content: center;
+    padding: 7px 6px;
+    font-size: 0.82rem;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .home-sidebar .book-jump-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .home-sidebar .jump-btn {
+    padding: 7px 10px;
+    font-size: 0.83rem;
+    gap: 6px;
+  }
+
+  .home-sidebar .jump-btn-label {
+    gap: 5px;
+  }
+
+  .home-sidebar .jump-range {
+    font-size: 0.72rem;
+    padding: 1px 6px;
+  }
 }
 
 @media (max-width: 720px) {
   .home-layout {
-    padding: 16px 14px 48px;
+    padding: 12px 12px 44px;
+    gap: 12px;
+  }
+
+  .home-main {
+    gap: 14px;
   }
 
   .home-hero {
-    padding: 16px 18px;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .home-hero h1 {
+    font-size: 1.22rem;
+  }
+
+  #search-status {
+    font-size: 0.8rem;
   }
 
   .search-box {
     max-width: 100%;
+  }
+
+  #formula-search {
+    padding: 8px 34px 8px 36px;
+    font-size: 0.88rem;
+  }
+
+  .track-divider {
+    padding: 10px 14px;
+    gap: 6px 10px;
+    margin-top: 4px;
+  }
+
+  .track-divider-title {
+    font-size: 0.94rem;
+    gap: 8px;
+  }
+
+  .track-divider-sub {
+    font-size: 0.78rem;
+  }
+
+  .book-header {
+    grid-template-areas:
+      "title right"
+      "meta  meta";
+    padding: 14px 16px;
+    gap: 6px 8px;
+  }
+
+  .book-header-title h2 {
+    font-size: 1.12rem;
+    gap: 8px;
+  }
+
+  .book-header-meta {
+    font-size: 0.81rem;
+    line-height: 1.45;
+  }
+
+  .book-range-pill {
+    padding: 2px 9px;
+    font-size: 0.76rem;
+  }
+
+  .book-toggle-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 0.75rem;
+  }
+
+  .book-body {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .chapter-group-header {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+
+  .chapter-group-title-link {
+    font-size: 0.93rem;
+  }
+
+  .formula-row {
+    padding: 9px 12px;
+    gap: 10px;
+  }
+
+  .formula-num {
+    min-width: 38px;
+    height: 24px;
+    font-size: 0.78rem;
+  }
+
+  .formula-title {
+    font-size: 0.9rem;
   }
 
   .notes-grid {
@@ -1819,6 +1962,26 @@ details.solution-details[open] .solution-toggle-icon {
     bottom: 16px;
     width: 42px;
     height: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-sidebar .track-filter-btn {
+    flex-direction: column;
+    gap: 3px;
+    padding: 7px 4px;
+    font-size: 0.76rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .home-sidebar .jump-btn {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 10px;
+    font-size: 0.82rem;
   }
 }
 
