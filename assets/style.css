@@ -1,6 +1,6 @@
 /* ==========================================================================
-   高一數學課後複習班｜共用樣式表 (assets/style.css)
-   支援：柔和草綠色 (第 1 冊)、柔和霧藍色 (第 2 冊)、響應式排版、A4 列印優化
+   高中數學課後複習班｜共用樣式表 (assets/style.css)
+   支援：柔和草綠 (1冊)、霧藍 (2冊)、湖水青 (3冊)、暖珊瑚 (4冊)、響應式排版、A4 列印
    ========================================================================== */
 
 :root {
@@ -36,6 +36,24 @@
   --b2-border: #c5d8e8;
   --b2-page: #f5f8fb;
 
+  /* Book 3 Palette: 柔和湖水青 */
+  --b3-primary: #2f8196;
+  --b3-soft: #5ab0c4;
+  --b3-dark: #1d5768;
+  --b3-tint: #eaf6f9;
+  --b3-tint-2: #f3fafc;
+  --b3-border: #bfe0e8;
+  --b3-page: #f4fafb;
+
+  /* Book 4 Palette: 柔和暖珊瑚 */
+  --b4-primary: #b8563c;
+  --b4-soft: #d97358;
+  --b4-dark: #7d3623;
+  --b4-tint: #fdf0ec;
+  --b4-tint-2: #fef7f5;
+  --b4-border: #ecc6bc;
+  --b4-page: #fcf7f5;
+
   /* Semantic Defaults (overridden by body[data-theme]) */
   --primary: var(--b1-primary);
   --primary-soft: var(--b1-soft);
@@ -64,6 +82,26 @@ body[data-theme="b2"] {
   --primary-tint-2: var(--b2-tint-2);
   --primary-border: var(--b2-border);
   --bg-page: var(--b2-page);
+}
+
+body[data-theme="b3"] {
+  --primary: var(--b3-primary);
+  --primary-soft: var(--b3-soft);
+  --primary-dark: var(--b3-dark);
+  --primary-tint: var(--b3-tint);
+  --primary-tint-2: var(--b3-tint-2);
+  --primary-border: var(--b3-border);
+  --bg-page: var(--b3-page);
+}
+
+body[data-theme="b4"] {
+  --primary: var(--b4-primary);
+  --primary-soft: var(--b4-soft);
+  --primary-dark: var(--b4-dark);
+  --primary-tint: var(--b4-tint);
+  --primary-tint-2: var(--b4-tint-2);
+  --primary-border: var(--b4-border);
+  --bg-page: var(--b4-page);
 }
 
 body[data-theme="home"] {
@@ -155,7 +193,17 @@ svg {
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, var(--b1-soft) 0%, var(--b1-primary) 48%, var(--b2-soft) 52%, var(--b2-primary) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--b1-soft) 0%,
+    var(--b1-primary) 24%,
+    var(--b2-soft) 26%,
+    var(--b2-primary) 49%,
+    var(--b3-soft) 51%,
+    var(--b3-primary) 74%,
+    var(--b4-soft) 76%,
+    var(--b4-primary) 100%
+  );
 }
 
 .home-hero-top {
@@ -223,6 +271,14 @@ svg {
   color: var(--b2-primary);
 }
 
+.stat-chip--teal i {
+  color: var(--b3-primary);
+}
+
+.stat-chip--coral i {
+  color: var(--b4-primary);
+}
+
 .home-controls {
   display: flex;
   flex-wrap: wrap;
@@ -273,6 +329,26 @@ svg {
 
 .jump-btn--b2:hover {
   background: #dfecf5;
+}
+
+.jump-btn--b3 {
+  background: var(--b3-tint);
+  color: var(--b3-dark);
+  border: 1px solid var(--b3-border);
+}
+
+.jump-btn--b3:hover {
+  background: #d8eff4;
+}
+
+.jump-btn--b4 {
+  background: var(--b4-tint);
+  color: var(--b4-dark);
+  border: 1px solid var(--b4-border);
+}
+
+.jump-btn--b4:hover {
+  background: #f9e2db;
 }
 
 .search-box {
@@ -362,6 +438,14 @@ svg {
   border-color: var(--b2-border);
 }
 
+.book-b3 {
+  border-color: var(--b3-border);
+}
+
+.book-b4 {
+  border-color: var(--b4-border);
+}
+
 .book-header {
   padding: 20px 24px;
   color: #ffffff;
@@ -377,6 +461,14 @@ svg {
 
 .book-b2 .book-header {
   background: linear-gradient(135deg, var(--b2-soft), var(--b2-primary));
+}
+
+.book-b3 .book-header {
+  background: linear-gradient(135deg, var(--b3-soft), var(--b3-primary));
+}
+
+.book-b4 .book-header {
+  background: linear-gradient(135deg, var(--b4-soft), var(--b4-primary));
 }
 
 .book-header-title {
@@ -430,6 +522,14 @@ svg {
   border-color: var(--b2-border);
 }
 
+.book-b3 .chapter-group {
+  border-color: var(--b3-border);
+}
+
+.book-b4 .chapter-group {
+  border-color: var(--b4-border);
+}
+
 .chapter-group-header {
   display: flex;
   flex-wrap: wrap;
@@ -450,6 +550,16 @@ svg {
   border-bottom-color: var(--b2-border);
 }
 
+.book-b3 .chapter-group-header {
+  background: var(--b3-tint);
+  border-bottom-color: var(--b3-border);
+}
+
+.book-b4 .chapter-group-header {
+  background: var(--b4-tint);
+  border-bottom-color: var(--b4-border);
+}
+
 .chapter-group-title-link {
   font-weight: 700;
   font-size: 1rem;
@@ -464,6 +574,14 @@ svg {
 
 .book-b2 .chapter-group-title-link {
   color: var(--b2-dark);
+}
+
+.book-b3 .chapter-group-title-link {
+  color: var(--b3-dark);
+}
+
+.book-b4 .chapter-group-title-link {
+  color: var(--b4-dark);
 }
 
 .chapter-group-title-link:hover {
@@ -530,9 +648,18 @@ svg {
   background: var(--b2-tint-2);
 }
 
+.book-b3 .formula-row:hover {
+  background: var(--b3-tint-2);
+}
+
+.book-b4 .formula-row:hover {
+  background: var(--b4-tint-2);
+}
+
 .formula-num {
   flex-shrink: 0;
-  width: 34px;
+  min-width: 38px;
+  padding: 0 5px;
   height: 26px;
   display: inline-flex;
   align-items: center;
@@ -552,6 +679,18 @@ svg {
   background: var(--b2-tint);
   color: var(--b2-dark);
   border: 1px solid var(--b2-border);
+}
+
+.book-b3 .formula-num {
+  background: var(--b3-tint);
+  color: var(--b3-dark);
+  border: 1px solid var(--b3-border);
+}
+
+.book-b4 .formula-num {
+  background: var(--b4-tint);
+  color: var(--b4-dark);
+  border: 1px solid var(--b4-border);
 }
 
 .formula-title {
