@@ -19,8 +19,8 @@
       });
     }
 
-    // 2. Mobile TOC drawer & Sidebar scroll-spy
-    var sidebar = document.querySelector('.chapter-sidebar');
+    // 2. Mobile TOC / Home Sidebar drawer & Sidebar scroll-spy
+    var sidebar = document.querySelector('.chapter-sidebar, .home-sidebar');
     var mobileTocToggle = document.querySelector('.mobile-toc-toggle');
     var tocLinks = Array.prototype.slice.call(
       document.querySelectorAll('.toc-link[href^="#"]')
@@ -179,6 +179,38 @@
         });
       };
 
+      var setBookCollapsed = function (book, collapsed) {
+        if (!book) {
+          return;
+        }
+        book.classList.toggle('is-collapsed', collapsed);
+        var header = book.querySelector('.book-header');
+        if (header) {
+          header.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+        }
+      };
+
+      bookSections.forEach(function (book) {
+        var header = book.querySelector('.book-header');
+        if (!header) {
+          return;
+        }
+        var toggleBook = function () {
+          var isVisible =
+            !book.classList.contains('is-collapsed') ||
+            book.classList.contains('is-search-open');
+          book.classList.remove('is-search-open');
+          setBookCollapsed(book, isVisible);
+        };
+        header.addEventListener('click', toggleBook);
+        header.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleBook();
+          }
+        });
+      });
+
       var filterFormulas = function () {
         var rawQuery = searchInput.value.trim();
         var query = rawQuery.toLowerCase();
@@ -218,7 +250,15 @@
         bookSections.forEach(function (book) {
           var hasVisibleGroup =
             book.querySelector('.chapter-group:not(.is-hidden)') !== null;
+          var searchOpen = query !== '' && hasVisibleGroup;
           book.classList.toggle('is-hidden', !hasVisibleGroup);
+          book.classList.toggle('is-search-open', searchOpen);
+          var header = book.querySelector('.book-header');
+          if (header) {
+            var expanded =
+              searchOpen || !book.classList.contains('is-collapsed');
+            header.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          }
         });
 
         trackDividers.forEach(function (divider) {
@@ -234,19 +274,13 @@
           if (query === '') {
             if (activeTrack === 'a') {
               searchStatus.textContent =
-                '目前顯示：自然組（共同 1–61 ＋ 數A A1–A75，共 ' +
-                visibleCount +
-                ' 個公式）';
+                '自然組（數A）｜共 ' + visibleCount + ' 個核心公式';
             } else if (activeTrack === 'b') {
               searchStatus.textContent =
-                '目前顯示：社會組（共同 1–61 ＋ 數B B1–B45，共 ' +
-                visibleCount +
-                ' 個公式）';
+                '社會組（數B）｜共 ' + visibleCount + ' 個核心公式';
             } else {
               searchStatus.textContent =
-                '共收錄 ' +
-                visibleCount +
-                ' 個核心公式（共同 1–61｜自然組 數A A1–A75｜社會組 數B B1–B45）';
+                '共收錄 ' + visibleCount + ' 個核心公式';
             }
           } else {
             searchStatus.textContent =
@@ -264,6 +298,22 @@
           activeTrack = btn.getAttribute('data-track') || 'all';
           syncTrackControls();
           filterFormulas();
+        });
+      });
+
+      jumpButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var href = btn.getAttribute('href') || '';
+          if (href.charAt(0) === '#') {
+            var targetBook = document.getElementById(href.slice(1));
+            if (targetBook && targetBook.classList.contains('book-section')) {
+              setBookCollapsed(targetBook, false);
+            }
+          }
+          if (sidebar && mobileTocToggle && window.innerWidth <= 960) {
+            sidebar.classList.remove('is-open');
+            mobileTocToggle.setAttribute('aria-expanded', 'false');
+          }
         });
       });
 

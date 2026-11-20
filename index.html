@@ -24,77 +24,89 @@
   <script defer src="assets/script.js"></script>
 </head>
 <body data-theme="home">
-  <div class="home-wrapper">
-    <!-- Hero Header -->
-    <header class="home-hero">
-      <div class="home-hero-top">
-        <span class="course-badge">
-          <i class="fa-solid fa-graduation-cap"></i>
-          108 課綱｜高中數學核心公式總目錄
-        </span>
-        <h1>高中數學核心公式總目錄</h1>
-        <p class="home-subtitle">
-          完整收錄高一共同必修（第 1–2 冊）、自然組 數A（第 3–4 冊）與社會組 數B（第 3–4 冊）核心公式、觀念重點、常見易錯點與精選範例，點擊下方任一公式即可快速跳轉至對應章節複習。
-        </p>
-
-        <div class="stat-chips">
-          <span class="stat-chip">
-            <i class="fa-solid fa-book-open"></i>
-            共 6 冊（共同＋數A＋數B）
-          </span>
-          <span class="stat-chip stat-chip--blue">
-            <i class="fa-solid fa-layer-group"></i>
-            21 個核心單元
-          </span>
-          <span class="stat-chip stat-chip--teal">
-            <i class="fa-solid fa-square-root-variable"></i>
-            181 個必備公式（1–61｜A1–A75｜B1–B45）
-          </span>
-        </div>
-
-        <div class="track-filter-bar" role="group" aria-label="篩選組別目錄">
-          <button type="button" class="track-filter-btn is-active" data-track="all" aria-pressed="true">
-            <i class="fa-solid fa-border-all"></i>
-            全部顯示
-          </button>
-          <button type="button" class="track-filter-btn" data-track="a" aria-pressed="false">
-            <i class="fa-solid fa-atom"></i>
-            自然組（數A）
-          </button>
-          <button type="button" class="track-filter-btn" data-track="b" aria-pressed="false">
-            <i class="fa-solid fa-landmark"></i>
-            社會組（數B）
-          </button>
-        </div>
+  <div class="home-layout">
+    <!-- Left Sticky Sidebar / Mobile Collapsible Navigation -->
+    <aside class="home-sidebar" aria-label="總目錄側邊導覽">
+      <div class="sidebar-header">
+        <div class="sidebar-book-label">108 課綱｜總目錄導覽</div>
+        <h2 class="sidebar-unit-title">組別篩選與冊別跳轉</h2>
       </div>
 
-      <div class="home-controls">
-        <nav class="book-jump-nav" aria-label="快速切換冊別">
-          <a class="jump-btn jump-btn--b1" href="#book-1" data-track="common">
-            <i class="fa-solid fa-leaf"></i>
-            高一第 1 冊（1–24）
-          </a>
-          <a class="jump-btn jump-btn--b2" href="#book-2" data-track="common">
-            <i class="fa-solid fa-water"></i>
-            高一第 2 冊（25–61）
-          </a>
-          <a class="jump-btn jump-btn--b3" href="#book-3a" data-track="a">
-            <i class="fa-solid fa-wave-square"></i>
-            數A 第 3 冊（A1–A40）
-          </a>
-          <a class="jump-btn jump-btn--b4" href="#book-4a" data-track="a">
-            <i class="fa-solid fa-cubes"></i>
-            數A 第 4 冊（A41–A75）
-          </a>
-          <a class="jump-btn jump-btn--b3b" href="#book-3b" data-track="b">
-            <i class="fa-solid fa-chart-line"></i>
-            數B 第 3 冊（B1–B26）
-          </a>
-          <a class="jump-btn jump-btn--b4b" href="#book-4b" data-track="b">
-            <i class="fa-solid fa-shapes"></i>
-            數B 第 4 冊（B27–B45）
-          </a>
-        </nav>
+      <button
+        type="button"
+        class="mobile-toc-toggle"
+        aria-expanded="false"
+        aria-controls="home-sidebar-nav"
+      >
+        <span><i class="fa-solid fa-sliders"></i> 組別篩選與各冊快速跳轉</span>
+        <i class="fa-solid fa-chevron-down toggle-caret" aria-hidden="true"></i>
+      </button>
+
+      <div id="home-sidebar-nav" class="toc-nav home-sidebar-nav">
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">
+            <i class="fa-solid fa-filter"></i>
+            組別篩選
+          </div>
+          <div class="track-filter-bar" role="group" aria-label="篩選組別目錄">
+            <button type="button" class="track-filter-btn is-active" data-track="all" aria-pressed="true">
+              <i class="fa-solid fa-border-all"></i>
+              全部顯示
+            </button>
+            <button type="button" class="track-filter-btn" data-track="a" aria-pressed="false">
+              <i class="fa-solid fa-atom"></i>
+              自然組（數A）
+            </button>
+            <button type="button" class="track-filter-btn" data-track="b" aria-pressed="false">
+              <i class="fa-solid fa-landmark"></i>
+              社會組（數B）
+            </button>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">
+            <i class="fa-solid fa-compass"></i>
+            各冊快速跳轉
+          </div>
+          <nav class="book-jump-nav" aria-label="快速切換冊別">
+            <a class="jump-btn jump-btn--b1" href="#book-1" data-track="common">
+              <span class="jump-btn-label"><i class="fa-solid fa-leaf"></i> 高一第 1 冊</span>
+              <span class="jump-range">01–24</span>
+            </a>
+            <a class="jump-btn jump-btn--b2" href="#book-2" data-track="common">
+              <span class="jump-btn-label"><i class="fa-solid fa-water"></i> 高一第 2 冊</span>
+              <span class="jump-range">25–61</span>
+            </a>
+            <a class="jump-btn jump-btn--b3" href="#book-3a" data-track="a">
+              <span class="jump-btn-label"><i class="fa-solid fa-wave-square"></i> 數A 第 3 冊</span>
+              <span class="jump-range">A1–A40</span>
+            </a>
+            <a class="jump-btn jump-btn--b4" href="#book-4a" data-track="a">
+              <span class="jump-btn-label"><i class="fa-solid fa-cubes"></i> 數A 第 4 冊</span>
+              <span class="jump-range">A41–A75</span>
+            </a>
+            <a class="jump-btn jump-btn--b3b" href="#book-3b" data-track="b">
+              <span class="jump-btn-label"><i class="fa-solid fa-chart-line"></i> 數B 第 3 冊</span>
+              <span class="jump-range">B1–B26</span>
+            </a>
+            <a class="jump-btn jump-btn--b4b" href="#book-4b" data-track="b">
+              <span class="jump-btn-label"><i class="fa-solid fa-shapes"></i> 數B 第 4 冊</span>
+              <span class="jump-range">B27–B45</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="home-main">
+      <!-- Hero Header -->
+      <header class="home-hero">
+        <div class="home-hero-title">
+          <h1>高中數學核心公式總目錄</h1>
+          <p id="search-status">共收錄 181 個核心公式</p>
+        </div>
 
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass search-box-icon" aria-hidden="true"></i>
@@ -102,20 +114,17 @@
           <input
             type="search"
             id="formula-search"
-            placeholder="搜尋公式名稱、編號或單元（例：斜率、A25、B14、圓錐曲線）"
+            placeholder="搜尋公式名稱、編號或單元（例：斜率、A25、B14）"
             autocomplete="off"
           >
           <button type="button" id="clear-search" class="is-hidden" aria-label="清除搜尋">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
+      </header>
 
-        <p id="search-status">共收錄 181 個核心公式（共同 1–61｜自然組 數A A1–A75｜社會組 數B B1–B45）</p>
-      </div>
-    </header>
-
-    <!-- Main 2-Column Book Grid -->
-    <main class="books-grid">
+      <!-- 2-Column Book Grid -->
+      <div class="books-grid">
       <div class="track-divider track-divider--common" data-track="common">
         <span class="track-divider-title">
           <span class="track-pill">共同必修</span>
@@ -126,7 +135,7 @@
 
       <!-- ==================== 高一 第 1 冊 ==================== -->
       <section id="book-1" class="book-section book-b1" data-track="common" aria-labelledby="book-1-title">
-        <div class="book-header">
+        <div class="book-header" role="button" tabindex="0" aria-expanded="true" title="點擊展開或收起本冊公式">
           <div class="book-header-title">
             <h2 id="book-1-title">
               <i class="fa-solid fa-seedling"></i>
@@ -134,7 +143,12 @@
             </h2>
             <span class="book-header-meta">數與式、指對數、多項式函數、直線與圓</span>
           </div>
-          <span class="book-range-pill">序號 1–24</span>
+          <div class="book-header-right">
+            <span class="book-range-pill">序號 1–24</span>
+            <span class="book-toggle-icon" aria-hidden="true">
+              <i class="fa-solid fa-chevron-up"></i>
+            </span>
+          </div>
         </div>
 
         <div class="book-body">
@@ -316,7 +330,7 @@
 
       <!-- ==================== 高一 第 2 冊 ==================== -->
       <section id="book-2" class="book-section book-b2" data-track="common" aria-labelledby="book-2-title">
-        <div class="book-header">
+        <div class="book-header" role="button" tabindex="0" aria-expanded="true" title="點擊展開或收起本冊公式">
           <div class="book-header-title">
             <h2 id="book-2-title">
               <i class="fa-solid fa-compass"></i>
@@ -324,7 +338,12 @@
             </h2>
             <span class="book-header-meta">數列與級數、數據分析、排列組合與機率、三角比</span>
           </div>
-          <span class="book-range-pill">序號 25–61</span>
+          <div class="book-header-right">
+            <span class="book-range-pill">序號 25–61</span>
+            <span class="book-toggle-icon" aria-hidden="true">
+              <i class="fa-solid fa-chevron-up"></i>
+            </span>
+          </div>
         </div>
 
         <div class="book-body">
@@ -594,7 +613,7 @@
 
       <!-- ==================== 數A 第 3 冊 ==================== -->
       <section id="book-3a" class="book-section book-b3" data-track="a" aria-labelledby="book-3a-title">
-        <div class="book-header">
+        <div class="book-header" role="button" tabindex="0" aria-expanded="true" title="點擊展開或收起本冊公式">
           <div class="book-header-title">
             <h2 id="book-3a-title">
               <i class="fa-solid fa-wave-square"></i>
@@ -602,7 +621,12 @@
             </h2>
             <span class="book-header-meta">三角函數、指數與對數函數、平面向量</span>
           </div>
-          <span class="book-range-pill">序號 A1–A40</span>
+          <div class="book-header-right">
+            <span class="book-range-pill">序號 A1–A40</span>
+            <span class="book-toggle-icon" aria-hidden="true">
+              <i class="fa-solid fa-chevron-up"></i>
+            </span>
+          </div>
         </div>
 
         <div class="book-body">
@@ -861,7 +885,7 @@
 
       <!-- ==================== 數A 第 4 冊 ==================== -->
       <section id="book-4a" class="book-section book-b4" data-track="a" aria-labelledby="book-4a-title">
-        <div class="book-header">
+        <div class="book-header" role="button" tabindex="0" aria-expanded="true" title="點擊展開或收起本冊公式">
           <div class="book-header-title">
             <h2 id="book-4a-title">
               <i class="fa-solid fa-cubes"></i>
@@ -869,7 +893,12 @@
             </h2>
             <span class="book-header-meta">空間向量、空間中的平面與直線、矩陣、條件機率與獨立事件</span>
           </div>
-          <span class="book-range-pill">序號 A41–A75</span>
+          <div class="book-header-right">
+            <span class="book-range-pill">序號 A41–A75</span>
+            <span class="book-toggle-icon" aria-hidden="true">
+              <i class="fa-solid fa-chevron-up"></i>
+            </span>
+          </div>
         </div>
 
         <div class="book-body">
@@ -1129,7 +1158,7 @@
 
       <!-- ==================== 數B 第 3 冊 ==================== -->
       <section id="book-3b" class="book-section book-b3b" data-track="b" aria-labelledby="book-3b-title">
-        <div class="book-header">
+        <div class="book-header" role="button" tabindex="0" aria-expanded="true" title="點擊展開或收起本冊公式">
           <div class="book-header-title">
             <h2 id="book-3b-title">
               <i class="fa-solid fa-chart-line"></i>
@@ -1137,7 +1166,12 @@
             </h2>
             <span class="book-header-meta">三角函數、指數與對數函數、平面向量</span>
           </div>
-          <span class="book-range-pill">序號 B1–B26</span>
+          <div class="book-header-right">
+            <span class="book-range-pill">序號 B1–B26</span>
+            <span class="book-toggle-icon" aria-hidden="true">
+              <i class="fa-solid fa-chevron-up"></i>
+            </span>
+          </div>
         </div>
 
         <div class="book-body">
@@ -1326,7 +1360,7 @@
 
       <!-- ==================== 數B 第 4 冊 ==================== -->
       <section id="book-4b" class="book-section book-b4b" data-track="b" aria-labelledby="book-4b-title">
-        <div class="book-header">
+        <div class="book-header" role="button" tabindex="0" aria-expanded="true" title="點擊展開或收起本冊公式">
           <div class="book-header-title">
             <h2 id="book-4b-title">
               <i class="fa-solid fa-shapes"></i>
@@ -1334,7 +1368,12 @@
             </h2>
             <span class="book-header-meta">空間概念、圓錐曲線、條件機率與獨立事件、矩陣</span>
           </div>
-          <span class="book-range-pill">序號 B27–B45</span>
+          <div class="book-header-right">
+            <span class="book-range-pill">序號 B27–B45</span>
+            <span class="book-toggle-icon" aria-hidden="true">
+              <i class="fa-solid fa-chevron-up"></i>
+            </span>
+          </div>
         </div>
 
         <div class="book-body">
@@ -1502,12 +1541,13 @@
           </div>
         </div>
       </section>
-    </main>
+      </div>
 
-    <div id="empty-search-state" class="empty-search-state is-hidden">
-      <i class="fa-regular fa-face-meh"></i>
-      <p>找不到符合關鍵字的公式，請嘗試其他關鍵字或清除搜尋條件。</p>
-    </div>
+      <div id="empty-search-state" class="empty-search-state is-hidden">
+        <i class="fa-regular fa-face-meh"></i>
+        <p>找不到符合關鍵字的公式，請嘗試其他關鍵字或清除搜尋條件。</p>
+      </div>
+    </main>
   </div>
 
   <footer class="site-footer">
